@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title> 42 Klaxons pour Tesla Boombox V1.20.12.31</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script language='javascript'>
+function saveas(url) {
+var filename = url.substring(url.lastIndexOf("/") + 1).split("?")[0];
+var xhr = new XMLHttpRequest();
+xhr.responseType = 'blob';
+xhr.onload = function() {
+var a = document.createElement('a');
+a.href = window.URL.createObjectURL(xhr.response);
+a.download = filename;
+a.style.display = 'none';
+document.body.appendChild(a);
+a.click();
+delete a;
+};
+xhr.open('GET', url);
+xhr.send();
+}
+</script>
+</head>
+<body>
+<div data-role="page">
+<div data-role="header">
+<A href="https://teslaos.io" Class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home" data-ajax="false">TeslaOs.io</A>
+<h1> 42 Klaxons pour Tesla Boombox V1.20.12.31</h1>
+
+</div>
+<div role="main" class="ui-content">
+
+<h4>Télécharger les mp3 souhaités et les mettre sur une clé USB dans un répertoire "boombox" ! pour la fonction Boombox de votre tesla</h4>
+<form class="ui-filterable">
+<input id="mylist1" data-type="search" placeholder="rechercher un son, un effet...">
+</form>
+<ul data-role="listview" data-filter="true" data-inset="true" data-input="#mylist1">
+
+<li><A href="javascript:saveas('bateau_cornebrume.mp3')">
+Bateau Corne de brume<br/>
+<audio controls="controls"><source src="bateau_cornebrume.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('heartbeat1.mp3')">
+battement de coeur<br/>
+<audio controls="controls"><source src="heartbeat1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('bonsoirbiloute.mp3')">
+Bonsoir Biloute !<br/>
+<audio controls="controls"><source src="bonsoirbiloute.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('cochongroin1.mp3')">
+Cochon groin<br/>
+<audio controls="controls"><source src="cochongroin1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('generiquedentdelamer.mp3')">
+Dent de la mer version longue<br/>
+<audio controls="controls"><source src="generiquedentdelamer.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('jingledentdelamer.mp3')">
+Dent de la mer version courte<br/>
+<audio controls="controls"><source src="jingledentdelamer.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('eau.mp3')">
+eau<br/>
+<audio controls="controls"><source src="eau.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('foret_coucou.mp3')">
+foret coucou<br/>
+<audio controls="controls"><source src="foret_coucou.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('helicoptere.mp3')">
+hélicoptere<br/>
+<audio controls="controls"><source src="helicoptere.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('ihaveadream.mp3')">
+I have a dream<br/>
+<audio controls="controls"><source src="ihaveadream.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('klaxon-tourdefrance.mp3')">
+klaxon tour de france<br/>
+<audio controls="controls"><source src="klaxon-tourdefrance.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('klaxoncamion1.mp3')">
+klaxon camion<br/>
+<audio controls="controls"><source src="klaxoncamion1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('klaxonoldcar.mp3')">
+klaxon vieille voiture<br/>
+<audio controls="controls"><source src="klaxonoldcar.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('klaxontrain.mp3')">
+klaxon train<br/>
+<audio controls="controls"><source src="klaxontrain.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('klaxonvelo1.mp3')">
+klaxon vélo<br/>
+<audio controls="controls"><source src="klaxonvelo1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('klaxon3.mp3')">
+klaxon voiture<br/>
+<audio controls="controls"><source src="klaxon3.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('mariokart1.mp3')">
+mariokart<br/>
+<audio controls="controls"><source src="mariokart1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_911.mp3')">
+moteur 911<br/>
+<audio controls="controls"><source src="moteur_911.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_accobra.mp3')">
+moteur ac cobra<br/>
+<audio controls="controls"><source src="moteur_accobra.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_astonmartin.mp3')">
+moteur aston martin<br/>
+<audio controls="controls"><source src="moteur_astonmartin.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteurbwm3.mp3')">
+moteur bmw m3<br/>
+<audio controls="controls"><source src="moteurbwm3.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_lamborghini.mp3')">
+moteur lamborghini<br/>
+<audio controls="controls"><source src="moteur_lamborghini.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteurmclarenslr.mp3')">
+moteur mclaren slr<br/>
+<audio controls="controls"><source src="moteurmclarenslr.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteurminisr56.mp3')">
+moteur mini s r56<br/>
+<audio controls="controls"><source src="moteurminisr56.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_mustang.mp3')">
+moteur mustang<br/>
+<audio controls="controls"><source src="moteur_mustang.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteurskyline.mp3')">
+moteur nissan skyline<br/>
+<audio controls="controls"><source src="moteurskyline.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteursubaru1800.mp3')">
+moteur subaru 1800<br/>
+<audio controls="controls"><source src="moteursubaru1800.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_voiture.mp3')">
+moteur voiture 1<br/>
+<audio controls="controls"><source src="moteur_voiture.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('moteur_voiture2.mp3')">
+moteur voiture 2<br/>
+<audio controls="controls"><source src="moteur_voiture2.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('orage_tonnerre.mp3')">
+orage tonnerre<br/>
+<audio controls="controls"><source src="orage_tonnerre.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('pinkpantherrefrain.mp3')">
+panthère rose<br/>
+<audio controls="controls"><source src="pinkpantherrefrain.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('poule1.mp3')">
+poule<br/>
+<audio controls="controls"><source src="poule1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('ramer.mp3')">
+ramer<br/>
+<audio controls="controls"><source src="ramer.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('rire2.mp3')">
+rire<br/>
+<audio controls="controls"><source src="rire2.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('rirejoker.mp3')">
+rire du joker<br/>
+<audio controls="controls"><source src="rirejoker.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('sirenepolice.mp3')">
+sirene police<br/>
+<audio controls="controls"><source src="sirenepolice.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('sirene_ambulance.mp3')">
+sirene ambulance<br/>
+<audio controls="controls"><source src="sirene_ambulance.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('sirene_pompiers.mp3')">
+sirene pompier<br/>
+<audio controls="controls"><source src="sirene_pompiers.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('vaisseauspatial1.mp3')">
+vaisseau 1<br/>
+<audio controls="controls"><source src="vaisseauspatial1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('vent1.mp3')">
+vent<br/>
+<audio controls="controls"><source src="vent1.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('wc.mp3')">
+wc<br/>
+<audio controls="controls"><source src="wc.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+<li><A href="javascript:saveas('whipateslarefrain.mp3')">
+whip a tesla refrain<br/>
+<audio controls="controls"><source src="whipateslarefrain.mp3" type="audio/mp3" />Votre navigateur n'est pas compatible pour l'audio</audio>
+</A></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+

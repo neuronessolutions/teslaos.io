@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+   
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a9e401b4a4.js" crossorigin="anonymous"></script>
+
+    <title>TeslaOS.io, environnement gratuit pour voitures Tesla</title>
+  </head>
+  <body onload='openwaze();' style='background-color:#000000;color:white;'>
+
+ 
+   
+
+<script language='javascript'>
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+</script>
+
+<script language='javascript'>
+ 
+  var mywazerefresh = getCookie("mywazerefresh");
+  var mywazezoom = getCookie("mywazezoom");
+  var mymodel = getCookie("mymodel");
+  var mysize = "";
+  // on test si il y a une valeur de paramètres, sinon on met une valeur par défaut
+  if (mywazezoom == '') { mywazezoom = "16"; }
+  if (mywazerefresh == '') { mywazerefresh = "5"; }
+  if (mymodel == '') { mymodel = "3"; }
+   if ((mymodel == "3") || (mymodel == "Y") || (mymodel == "C"))
+   {
+	   mysize = "width='1050px' height='740px'"; 
+   }
+   else
+   {
+        mysize = "width='1100px' height='1400px'";
+   }	   
+
+var mylatitude = 0.00000;
+var mylongitude = 0.00000;
+var myprecision = 0.00;
+var oldlatitude = 0.0000;
+var oldlongitude = 0.0000;
+function setmodelight()
+{
+        const queryString = window.location.search;
+		//alert(queryString);
+		if (queryString == "?modenuit")
+		{
+			// on est en mode nuit déjà, on passe en mode jour
+			document.location.href="waze.html";
+			
+		}
+		else
+		{
+			// on est en mode jour, on passe en mode nuit pour la carte
+			document.location.href="waze.html?modenuit";
+		}
+			
+      
+	
+}
+
+function openwaze()
+{
+       
+		 document.getElementById('urlid').innerHTML = "<strong>TeslaOS.io : Initialisation de waze en cours...</strong><br><table border='0'><tr><td height='5px'></td></tr></table>"; 
+	     setInterval(refreshwaze, mywazerefresh * 1000);
+	
+}
+function refreshwaze()
+{
+    
+	  var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+            };
+                       var test2 = 0;
+                        function success(pos) {
+                        var crd = pos.coords;
+
+                        mylatitude = crd.latitude;
+						mylongitude = crd.longitude;
+					    myprecision = crd.accuracy;
+                       
+					   }
+
+                       function error(err) {
+                          console.warn(`ERREUR (${err.code}): ${err.message}`);
+                       }
+
+                       navigator.geolocation.getCurrentPosition(success, error, options);
+					   
+	  
+	     if ((mylatitude != 0) && (oldlatitude != mylatitude))
+	   {
+	      const queryString = window.location.search;
+	 	  if (queryString == "?modenuit")
+		  {
+		    document.getElementById('urlid').innerHTML = "<a class='btn btn-success btn-sm'><strong>Latitude</strong> "+mylatitude+" </a>&nbsp;<a class='btn btn-success btn-sm'><strong>Longitude</strong> "+mylongitude+" </a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Rafraîchissement</strong> "+mywazerefresh+"sec.</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Zoom</strong> "+mywazezoom+"x</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Modèle</strong> "+mymodel+"</a>&nbsp;<a class='btn btn-primary btn-sm' href='javascript:setmodelight();'><i class='fa fa-sun-o'></i>&nbsp;<strong>Mode jour</strong></a><br><table border='0'><tr><td height='5px'></td></tr></table>"; 
+		  }
+		  else
+		  {
+		    document.getElementById('urlid').innerHTML = "<a class='btn btn-success btn-sm'><strong>Latitude</strong> "+mylatitude+" </a>&nbsp;<a class='btn btn-success btn-sm'><strong>Longitude</strong> "+mylongitude+" </a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Rafraîchissement</strong> "+mywazerefresh+"sec.</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Zoom</strong> "+mywazezoom+"x</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Modèle</strong> "+mymodel+"</a>&nbsp;<a class='btn btn-primary btn-sm' href='javascript:setmodelight();'><i class='fa fa-moon-o'></i>&nbsp;<strong>Mode nuit</strong></a><br><table border='0'><tr><td height='5px'></td></tr></table>"; 
+		  }
+		 
+			  
+			  
+		 document.getElementById('myframewaze').src = "https://embed.waze.com/fr/iframe?zoom="+mywazezoom+"&lat="+mylatitude+"&lon="+mylongitude+"&pin=1"; 
+	     oldlatitude = mylatitude;
+       }
+	   else
+	   {
+		 if (mylatitude == 0)
+         {			 
+		   document.getElementById('urlid').innerHTML = "<strong>TeslaOS.io : Obtention des coordonnées en cours pour votre modèle "+mymodel+"...</strong><br><table border='0'><tr><td height='5px'></td></tr></table>";  
+	     
+		 }
+		 else
+		 {
+		  const queryString = window.location.search;
+	 	  if (queryString == "?modenuit")
+		  {
+		   document.getElementById('urlid').innerHTML = "<a class='btn btn-success btn-sm'><strong>Latitude</strong> "+mylatitude+" </a>&nbsp;<a class='btn btn-success btn-sm'><strong>Longitude</strong> "+mylongitude+" </a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Rafraîchissement</strong> "+mywazerefresh+"sec.</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Zoom</strong> "+mywazezoom+"x</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Modèle</strong> "+mymodel+"</a>&nbsp;<a class='btn btn-primary btn-sm' href='javascript:setmodelight();'><i class='fa fa-sun-o'></i>&nbsp;<strong>Mode jour</strong></a>&nbsp;<a class='btn btn-danger btn-sm'><strong>Voiture à l'arrêt</strong></a><br><table border='0'><tr><td height='5px'></td></tr></table>";  
+		  }
+		  else
+		  {
+		   document.getElementById('urlid').innerHTML = "<a class='btn btn-success btn-sm'><strong>Latitude</strong> "+mylatitude+" </a>&nbsp;<a class='btn btn-success btn-sm'><strong>Longitude</strong> "+mylongitude+" </a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Rafraîchissement</strong> "+mywazerefresh+"sec.</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Zoom</strong> "+mywazezoom+"x</a>&nbsp;<a class='btn btn-primary btn-sm' href='setup.php'><i class='fa fa-cog'></i>&nbsp;<strong>Modèle</strong> "+mymodel+"</a>&nbsp;<a class='btn btn-primary btn-sm' href='javascript:setmodelight();'><i class='fa fa-moon-o'></i>&nbsp;<strong>Mode nuit</strong></a>&nbsp;<a class='btn btn-danger btn-sm'><strong>Voiture à l'arrêt</strong></a><br><table border='0'><tr><td height='5px'></td></tr></table>";  
+		  }
+		  	  
+		 
+		 
+		 }
+	   }
+}
+
+
+	 </script>  
+			
+			<br>
+		      
+						<div id="urlid"></div> 
+						<script language="javascript">
+							
+  			             const queryString = window.location.search;
+	 	                 if (queryString == "?modenuit")
+		                 {
+			                document.write("<div id='myiframe'><iframe id='myframewaze' style='-webkit-filter:invert(90%);filter:invert(90%);' src='https://embed.waze.com/fr/iframe?zoom=3&lat=0&long=0' "+mysize+"></iframe></div>");
+						 }
+                         else
+						 {
+                            document.write("<div id='myiframe'><iframe id='myframewaze' src='https://embed.waze.com/fr/iframe?zoom=3&lat=0&long=0' "+mysize+"></iframe></div>");
+					 	 }
+						
+		      </script>	
+				  
+ 
+ 
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
